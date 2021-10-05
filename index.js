@@ -1,9 +1,27 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
-}
+// function hasTargetSum(array, target) {
+//   // Write your algorithm here
+//   for(let i = 0; i< array.length; i++){
+//     const sum = target-array[i];
+//     for(let j = i+1; j<array.length; j++){
+//       if(array[j]===sum)return true;
+//     }
 
+//   }
+//   return false;
+// }
+function hasTargetSum(array, target){
+  const seenNumbers = new Set();
+  for(n of array){
+    const sum = target - n;
+    if(seenNumbers.has(sum))return true;
+    seenNumbers.add(n);
+  }
+  return false;
+}
 /* 
   Write the Big O time complexity of your function here
+  O(n**2)-runtime
+  O(n) space
 */
 
 /* 
